@@ -1,3 +1,10 @@
+.scrollTop {
+  transition: 0.25s ease all;
+}
+.scrollTop:hover {
+  transform: translateY(-3px) !important;
+}
+
 .page {
   --gray-rgb: 0, 0, 0;
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
