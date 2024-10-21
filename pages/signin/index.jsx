@@ -32,7 +32,7 @@ function index() {
 
         // Send the data to the server or handle it in some way
         try {
-            const response = await fetch('http://localhost:3001/api/signin', {
+            const response = await fetch('http://38.242.158.213/api/signin', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
