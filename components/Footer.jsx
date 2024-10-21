@@ -1,10 +1,15 @@
 import { Box, Typography } from '@mui/material'
 import Image from 'next/image'
+import { useRouter } from 'next/router';
 import React from 'react'
 
 function Footer() {
+    const router = useRouter()
     function NavigatingSocial(url) {
         window.open(url, 'noopener,noreferrer');
+    }
+    function navgatingToSignIn(e) {
+        router.push(`/signin`)
     }
     return (
         <footer>
@@ -53,6 +58,8 @@ function Footer() {
 
                         ))
                     }
+                    <Box onClick={navgatingToSignIn} sx={{ color: "white" }}>signin</Box>
+
                 </Box>
 
             </Box>

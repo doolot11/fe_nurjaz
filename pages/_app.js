@@ -31,8 +31,10 @@ export default function App({ Component, pageProps }) {
   return (
     <Box>
       <Head>
-        <link rel="icon" type="image/png" href={"/assets/icons/favicon.png"} />
-        <title>Nurjaz Brand</title>
+        {/* <link rel="icon" type="image/png" href={"/assets/icons/favicon.png"} /> */}
+        {/* <title>Nurjaz Brand</title> */}
+        <meta name="description" content="швейная фабрика, Кыргызстан, униформа, спецодежда, производство на заказ, NURJAZ" />
+        <meta name="keywords" content="швейная фабрика, Кыргызстан, униформа, спецодежда, производство на заказ, NURJAZ" />
       </Head>
       <ToastContainer position="top-center"
         autoClose={1200}
