@@ -30,7 +30,7 @@ function index() {
             return;
         }
 
-        // Send the data to the server or handle it in some way
+        // Send the data to the server or handle it in some way sde
         try {
             const response = await fetch('http://38.242.158.213/api/signin', {
                 method: 'POST',
