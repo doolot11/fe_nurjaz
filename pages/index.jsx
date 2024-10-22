@@ -135,6 +135,7 @@ export default function Home() {
         <meta property="og:description" content="Оптовый производитель женской одежды Качественный продукт за короткий срок Доставка по всему Минимальный заказ от 300шт" />
         <meta property="og:image" content="/assets/images/nurjazLogo.jpg" />
         <meta property="og:url" content="https://www.nurjaz.kg" />
+        <meta name="google-site-verification" content="J_-2TkexiSRX4Q_-MrRDPCSmDcm45e4UMYurYqufQjQ" />
       </Head>
       <div
 
