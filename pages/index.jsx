@@ -201,11 +201,11 @@ export default function Home() {
 
             </Box>
             <Box sx={{ display: { md: "block", xs: "none" } }}>
-              <Image data-aos="fade-down-left" layout="responsive" width={700} src={bannerImage} />
+              <Image data-aos="fade-down-left" layout="responsive" width={700} height={0} src={"/assets/images/bannerImage.png"} />
             </Box>
           </Box>
           <Box sx={{ display: { md: "none", xs: "block" } }}>
-            <Image data-aos="fade-down-left" layout="responsive" width={700} src={bannerImage} />
+            <Image data-aos="fade-down-left" layout="responsive" width={700} height={0} src={"/assets/images/bannerImage.png"} />
           </Box>
 
           {/*  */}
