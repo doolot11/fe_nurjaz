@@ -59,7 +59,7 @@ function index() {
 
     async function getRequests(page) {
         try {
-            const response = await fetch(`${BASE_URL}api/requests?page=${page}`);
+            const response = await fetch(`${BASE_URL}/requests?page=${page}`);
 
             const { result, count } = await response.json();
             setRequests(result)
@@ -94,7 +94,7 @@ function index() {
 
     async function deleteRequest() {
         try {
-            const response = await fetch(`${BASE_URL}api/requests/delete`, {
+            const response = await fetch(`${BASE_URL}/requests/delete`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -113,7 +113,7 @@ function index() {
     }
     async function answeredRequest() {
         try {
-            const response = await fetch(`${BASE_URL}api/requests/isAnswered`, {
+            const response = await fetch(`${BASE_URL}/requests/isAnswered`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -170,7 +170,7 @@ function index() {
 
     async function deleteMainPost() {
         try {
-            const res = await fetch(`${BASE_URL}api/content/mainCard/delete`, {
+            const res = await fetch(`${BASE_URL}/content/mainCard/delete`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -221,7 +221,7 @@ function index() {
             const formData = new FormData();
             formData.append('title', valueToSend.title);
             formData.append('image', selectedImage);
-            const response = await fetch(`${BASE_URL}api/content/mainCard`, {
+            const response = await fetch(`${BASE_URL}/content/mainCard`, {
                 method: 'POST',
                 body: formData,
             });
@@ -245,7 +245,7 @@ function index() {
             const formData = new FormData();
             formData.append('idMainCard', detailCard.data._id);
             formData.append('image', selectedDetailImage);
-            const response = await fetch(`${BASE_URL}api/content/detailCard`, {
+            const response = await fetch(`${BASE_URL}/content/detailCard`, {
                 method: 'POST',
                 body: formData,
             });
@@ -264,7 +264,7 @@ function index() {
 
     async function getMainCards() {
         try {
-            const response = await fetch(`${BASE_URL}api/content/mainCard`)
+            const response = await fetch(`${BASE_URL}/content/mainCard`)
             const data = await response.json()
             setMainCards(data)
         } catch (error) {

@@ -48,7 +48,8 @@ const ourSewing = [
   { title: "Шьём оптом", des: "Каждая продукция проходит двойную проверку на качество.", image: "/assets/images/image4.png" },
 ]
 
-export const BASE_URL = "http://38.242.158.213/"
+export const BASE_URL = "http://38.242.158.213/api"
+// export const BASE_URL = "http://localhost:3001"
 
 export default function Home() {
 
@@ -105,7 +106,7 @@ export default function Home() {
 
   async function getMainCards() {
     try {
-      const response = await fetch(`${BASE_URL}api/content/mainCard`)
+      const response = await fetch(`${BASE_URL}/content/mainCard`)
       const data = await response.json()
       setMainCards(data)
     } catch (error) {
