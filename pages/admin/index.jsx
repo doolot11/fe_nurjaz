@@ -497,7 +497,7 @@ function index() {
                                         }} key={"onw" + index}>
                                         <Box sx={{ position: "absolute" }}><Image onClick={() => isOpenDeleteMainPostHandle(e)} style={{ cursor: "pointer" }} width={25} height={25} src="/assets/icons/delete.svg" /> </Box>
                                         <Box sx={{ width: "auto" }}>
-                                            <img onClick={() => openDetailCardHandle(e)} style={{ width: "100%", height: "auto", objectFit: "cover" }} src={BASE_URL + "src/uploads/" + e.image} alt="" />
+                                            <img onClick={() => openDetailCardHandle(e)} style={{ width: "100%", height: "auto", objectFit: "cover" }} src={BASE_URL + "/src/uploads/" + e.image} alt="" />
                                             {/* <Image style={{ border: "1px #e2e2e2 solid", borderRadius: "20px" }} src={BASE_URL + "src/uploads/" + e.image} width={0} height={0} layout="responsive" /> */}
                                         </Box>
                                         <Box sx={{ borderRadius: "0 0 20px 20px", position: "absolute", bottom: 4, background: "#0000003e", padding: { md: "0 10px", xs: "0 4px" } }}>

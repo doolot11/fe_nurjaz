@@ -253,7 +253,7 @@ export default function Home() {
                     }}
                       component="img" src={e.image} alt="image1" /> */}
                     <Box sx={{ width: "100%" }}>
-                      <Image style={{ border: "1px #e2e2e2 solid", borderRadius: "20px" }} src={`${BASE_URL}src/uploads/${e.image}`} width={0} height={0} layout="responsive" />
+                      <Image style={{ border: "1px #e2e2e2 solid", borderRadius: "20px" }} src={`${BASE_URL}/src/uploads/${e.image}`} width={0} height={0} layout="responsive" />
                     </Box>
                     <Box sx={{ borderRadius: "0 0 20px 20px", width: "100%", position: "absolute", bottom: 4, background: "#0000003e", padding: { md: "0 10px", xs: "0 4px" } }}>
                       <Typography sx={{ textAlign: "center", fontSize: { md: "18px", xs: "13px" }, fontWeight: 500, color: "white" }}>{e.title}</Typography>
