@@ -2,7 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import localFont from "next/font/local";
 import styles from "@/styles/Home.module.css";
-import { Box, Button, Input, TextareaAutosize, TextField, Typography } from "@mui/material";
+import { Box, Button, Input, Modal, TextareaAutosize, TextField, Typography } from "@mui/material";
 import instagram from "../public/assets/icons/instagram.svg"
 import whatsApp from "../public/assets/icons/whatsApp.svg"
 import phone from "../public/assets/icons/phone.svg"
@@ -30,6 +30,18 @@ const stylesImage = {
   margin: "15px 5px",
   cursor: "pointer",
 }
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  // width: 400,
+  // bgcolor: 'background.paper',
+  border: 'none',
+  // boxShadow: 24,
+  // p: 4,
+};
 
 const offoringCards = [
   { title: "Качество продукции ", des: "Пошив оптом одежду легкой группы, верхней и трикотаж.", image: "/assets/images/image1.png" },
@@ -118,7 +130,16 @@ export default function Home() {
     getMainCards()
   }, [])
 
-  console.log(mainCards, "mainCards");
+
+  const [detailImages, setDetailImages] = useState([])
+  const [detailImagesModal, setDetailImagesModal] = useState(false)
+
+  function showDetailImagesHandle(e) {
+    console.log(e, "deta");
+    setDetailImages(e.count)
+    setDetailImagesModal(true)
+
+  }
 
 
   return (
@@ -134,7 +155,7 @@ export default function Home() {
         <meta property="og:title" content="Швейная фабрика NURJAZ в Кыргызстане" />
         <meta property="og:description" content="Оптовый производитель женской одежды Качественный продукт за короткий срок Доставка по всему Минимальный заказ от 300шт" />
         <meta property="og:image" content="/assets/images/nurjazLogo.jpg" />
-        <meta property="og:url" content="https://www.nurjaz.kg" />
+        <meta property="og:url" content="https://www.nurjazkg.ru" />
         <meta name="google-site-verification" content="J_-2TkexiSRX4Q_-MrRDPCSmDcm45e4UMYurYqufQjQ" />
       </Head>
       <div
@@ -167,6 +188,20 @@ export default function Home() {
             display: "flex", justifyContent: "center", alignItems: "center", margin: { md: "0", xs: "30px 0 0 0" },
             padding: { md: "0", xs: "0 10px 0 10px" }
           }}>
+
+            <Modal open={detailImagesModal}
+              onClose={() => setDetailImagesModal(false)}>
+              <Box style={style} >
+                <Box sx={{ display: "grid", gap: "10px", minWidth: "100%", gridTemplateColumns: { md: "auto auto auto auto", xs: "auto auto " }, overflowX: "scroll", background: "white", padding: "10px" }}>
+                  {detailImages.map((i) => (
+                    <Box key={i._id} sx={{ width: { md: "300px", xs: "180px" } }}>
+                      <img style={{ width: "100%" }} src={`${BASE_URL}/src/uploads/${i.image}`} alt={i.image} />
+                    </Box>
+                  ))}
+                </Box>
+              </Box>
+            </Modal>
+
             <Box sx={{ display: "flex", flexDirection: "column" }}>
               <Image onClick={() => NavigatingSocial("https://www.instagram.com/nurjaz_brand/")} data-aos="zoom-in-right" data-aos-delay="0" style={stylesImage} src={instagram} alt="Logo" width={27} />
               <Image onClick={() => NavigatingSocial("https://wa.me/996702085452/")} data-aos="zoom-in-right" data-aos-delay="100" style={stylesImage} src={whatsApp} alt="Logo" width={27} />
@@ -243,11 +278,11 @@ export default function Home() {
             <Box sx={{ display: { md: "flex", xs: "block" }, justifyContent: "center", padding: { md: "100px", xs: "15px" } }}>
               <Box sx={{ display: "grid", gridTemplateColumns: { md: "auto auto auto auto", xs: "auto auto" }, zIndex: 1, }}>
                 {mainCards.map((e, index) => (
-                  <Box data-aos="fade-up" data-aos-anchor-placement="center-bottom"
+                  <Box onClick={() => showDetailImagesHandle(e)} key={e._id} data-aos="fade-up" data-aos-anchor-placement="center-bottom"
                     sx={{
                       position: "relative", margin: "10px",
                       ":hover": { transform: "translateY(-4px) !important", transition: "0.15s ease all" }
-                    }} key={"onw" + index}>
+                    }}>
                     {/* <Box sx={{
                       margin: "10px", border: "1px #e2e2e2 solid", borderRadius: "20px", 
                     }}

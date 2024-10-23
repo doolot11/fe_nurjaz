@@ -34,7 +34,7 @@ function a11yProps(index) {
     };
 }
 
-const style = {
+export const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -334,7 +334,7 @@ function index() {
 
                         {detailImages.map((i, index) => (
                             <Box key={i._id} sx={{ width: { md: "300px", xs: "150px" } }}>
-                                <img style={{ width: "100%" }} src={`${BASE_URL}src/uploads/${i.image}`} alt={i.image} />
+                                <img style={{ width: "100%" }} src={`${BASE_URL}/src/uploads/${i.image}`} alt={i.image} />
                             </Box>
                         ))
                         }
