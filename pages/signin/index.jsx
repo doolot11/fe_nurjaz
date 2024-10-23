@@ -1,6 +1,7 @@
 import { Box, Button } from '@mui/material'
 import { useRouter } from 'next/router';
 import React, { useState } from 'react'
+import { BASE_URL } from '..';
 
 function index() {
     const router = useRouter();
@@ -32,7 +33,7 @@ function index() {
 
         // Send the data to the server or handle it in some way sde
         try {
-            const response = await fetch('http://38.242.158.213/api/signin', {
+            const response = await fetch(`${BASE_URL}/signin`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

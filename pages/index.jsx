@@ -48,7 +48,7 @@ const ourSewing = [
   { title: "Шьём оптом", des: "Каждая продукция проходит двойную проверку на качество.", image: "/assets/images/image4.png" },
 ]
 
-export const BASE_URL = "http://38.242.158.213/api"
+export const BASE_URL = "http://nurjazkg.ru/api"
 // export const BASE_URL = "http://localhost:3001"
 
 export default function Home() {
@@ -81,7 +81,7 @@ export default function Home() {
 
     if (valueRequest.fullName && valueRequest.phone && valueRequest.description) {
       try {
-        const response = await fetch('http://38.242.158.213/api/request', {
+        const response = await fetch(`${BASE_URL}/request`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
