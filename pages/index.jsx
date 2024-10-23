@@ -48,7 +48,7 @@ const ourSewing = [
   { title: "Шьём оптом", des: "Каждая продукция проходит двойную проверку на качество.", image: "/assets/images/image4.png" },
 ]
 
-export const BASE_URL = "http://nurjazkg.ru/api"
+export const BASE_URL = "https://nurjazkg.ru/api"
 // export const BASE_URL = "http://localhost:3001"
 
 export default function Home() {
