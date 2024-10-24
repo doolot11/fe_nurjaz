@@ -45,7 +45,7 @@ function index() {
 
             if (response.ok) {
                 localStorage.setItem("nurjaz_data", JSON.stringify(result._id))
-                router.push(`/admin`)
+                router.push(`/adminnur`)
             } else {
                 setError(result.message || 'Sign-in failed');
             }
