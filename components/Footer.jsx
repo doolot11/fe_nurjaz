@@ -26,7 +26,7 @@ function Footer() {
                     <Typography sx={{ color: "white", width: { md: "300px" }, fontWeight: 500, fontSize: "24px", textAlign: { xs: "center" }, margin: { xs: "40px 0 0 0" } }}>Контакты</Typography>
                     <Box onClick={() => NavigatingSocial("https://wa.me/996702085452/")} sx={{ display: "flex", alignItems: "center", justifyContent: { xs: "center", md: "start" }, gap: "10px", cursor: "pointer" }}>
                         <Image width={22} height={22} src="/assets/icons/whatsAppWhite.svg" />
-                        <Typography sx={{ color: "white", ":hover": { borderBottom: "1px white solid" }, }}>+996 000 000 000</Typography>
+                        <Typography sx={{ color: "white", ":hover": { borderBottom: "1px white solid" }, }}>+996 702 085 452</Typography>
                     </Box>
                     <Box onClick={() => NavigatingSocial("https://www.instagram.com/nurjaz_brand/")} sx={{ display: "flex", alignItems: "center", justifyContent: { xs: "center", md: "start" }, gap: "10px", cursor: "pointer" }}>
                         <Image width={22} height={22} src="/assets/icons/instaWhite.svg" />
@@ -36,9 +36,9 @@ function Footer() {
                         <Image width={22} height={22} src="/assets/icons/locationWhite.svg" />
                         <Typography sx={{ color: "white", ":hover": { borderBottom: "1px white solid" }, }}>Чуй 56</Typography>
                     </Box>
-                    <Box onClick={() => { window.location.href = 'tel:+996999444072'; }} sx={{ display: "flex", alignItems: "center", justifyContent: { xs: "center", md: "start" }, gap: "10px", cursor: "pointer" }}>
+                    <Box onClick={() => { window.location.href = 'tel:+996702085452'; }} sx={{ display: "flex", alignItems: "center", justifyContent: { xs: "center", md: "start" }, gap: "10px", cursor: "pointer" }}>
                         <Image width={22} height={22} src="/assets/icons/phoneWhite.svg" />
-                        <Typography sx={{ color: "white", ":hover": { borderBottom: "1px white solid" }, }}>+996 000 000 000</Typography>
+                        <Typography sx={{ color: "white", ":hover": { borderBottom: "1px white solid" }, }}>+996 702 085 452</Typography>
                     </Box>
                 </Box>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: "15px" }}>

@@ -1,4 +1,4 @@
-import { Box, Button, Modal, Pagination, Stack, Tab, Tabs, TextField, Typography } from '@mui/material'
+import { Box, Button, Modal, Pagination, Stack, Tab, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Tabs, TextField, Typography } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { BASE_URL } from '..';
 import { toast } from 'react-toastify';
@@ -19,7 +19,7 @@ function TabPanel(props) {
             {...other}
         >
             {value === index && (
-                <Box sx={{ p: 3 }}>
+                <Box sx={{ padding: { md: "20px", xs: "0" } }}>
                     {children}
                 </Box>
             )}
@@ -401,18 +401,51 @@ function index() {
                         textColor="secondary"
                         indicatorColor="secondary"
                         aria-label="secondary tabs example"
+
                     >
                         <Tab value={0} {...a11yProps(0)} label="Завки" />
                         <Tab value={1} {...a11yProps(1)} label="Посты" />
-                        <Tab value={2} {...a11yProps(2)} label="Item Three" />
+                        {/* <Tab value={2} {...a11yProps(2)} label="Item Three" /> */}
                     </Tabs>
                 </Box>
                 {/* requests */}
-                <TabPanel value={value} index={1}>
-                    <Box>
+                <TabPanel sx={{}} value={value} index={0}>
+                    <TableContainer>
+                        <Table sx={{ minWidth: 700 }} aria-label="customized table">
+                            <TableHead sx={{ "td, th": { padding: "3px" } }}>
+                                <TableRow>
+                                    <TableCell>ФИО</TableCell>
+                                    <TableCell align="left">Номер</TableCell>
+                                    <TableCell align="left">Описание</TableCell>
+                                    <TableCell align="left">Время</TableCell>
+                                    <TableCell align="left">Действия</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {requests.map((row) => (
+                                    <TableRow key={row._id} sx={{ background: `${row.isAnswered ? "#f4dc7d" : "none"}`, "td, th": { padding: "3px" } }} >
+                                        <TableCell component="th">
+                                            {row.fullName}
+                                        </TableCell>
+                                        <TableCell sx={{whiteSpace: "nowrap"}} align="left">{row.phone}</TableCell>
+                                        <TableCell align="left">{row.description}</TableCell>
+                                        <TableCell align="left">{moment(row.createdAt).format('DD-MM-YYYY HH:mm')}</TableCell>
+                                        <TableCell align="left">
+                                            <Box sx={{ display: "flex", alignItems: "left", gap: "5px" }}>
+                                                <Button onClick={() => isOpenDeleteModal(row)} variant='contained' color="error" sx={{ width: "70px", fontSize: "10px", height: "30px" }}>Удалить</Button>
+                                                <Button onClick={() => isOpenAnsweredModal(row)} variant='contained' color="success"
+                                                    sx={{ width: "80px", fontSize: "10px", height: "30px" }}>Прочитано</Button>
+                                            </Box>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                    {/* <Box sx={{ overflowY: "scroll" }}>
                         <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr" }}>
                             <Typography sx={{ ...titleStyle }}>ФИО</Typography>
-                            <Typography sx={{ ...titleStyle }}>Номер</Typography>
+                            <Typography sx={{ ...titleStyle, whiteSpace: "nowrap" }}>Номер</Typography>
                             <Typography sx={{ ...titleStyle }}>Описание</Typography>
                             <Typography sx={{ ...titleStyle }}>Время</Typography>
                             <Typography sx={{ ...titleStyle }}>Действия</Typography>
@@ -423,8 +456,8 @@ function index() {
                                 background: `${i.isAnswered ? "#f4dc7d" : "none"}`
                             }} key={i._id}>
                                 <Typography>{i.fullName}</Typography>
-                                <Typography>{i.phone}</Typography>
-                                <Typography>{i.description}</Typography>
+                                <Typography sx={{ whiteSpace: "nowrap" }}>{i.phone}</Typography>
+                                <Typography sx={{}}>{i.description}</Typography>
                                 <Typography>{moment(i.createdAt).format('DD-MM-YYYY HH:mm')}</Typography>
                                 <Box sx={{ display: "flex", gap: "5px" }}>
                                     <Button onClick={() => isOpenDeleteModal(i)} variant='contained' color="error" sx={{ width: "70px", fontSize: "10px", height: "30px" }}>Удалить</Button>
@@ -433,17 +466,17 @@ function index() {
                                 </Box>
                             </Box>
                         ))}
-                    </Box>
+                    </Box> */}
                     <Stack spacing={2}>
                         <Pagination onChange={onChangePagination} count={countReqPage / 30} page={+router.query.page} color="secondary" />
                     </Stack>
                 </TabPanel>
                 {/* content */}
-                <TabPanel value={value} index={0}>
+                <TabPanel sx={{ ".css-19kzrtu": { padding: "0" } }} value={value} index={1}>
                     <Box>
                         <Button onClick={() => setIsCreateMainCard(!isCreateMainCard)} variant='contained'>Создать пост</Button>
                     </Box>
-                    <Box sx={{ p: 3, textAlign: 'center' }}>
+                    <Box sx={{ textAlign: 'center' }}>
                         <Typography variant="h4" gutterBottom>
                             Что мы шеьм?
                         </Typography>
@@ -515,7 +548,7 @@ function index() {
                     Item Three Content
                 </TabPanel>
             </Box>
-        </Box>
+        </Box >
     )
 }
 

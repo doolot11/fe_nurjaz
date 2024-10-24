@@ -462,7 +462,7 @@ export default function Home() {
               {/* ------- */}
               <Box>
                 {/* step 5 */}
-                <Box data-aos="fade-up" sx={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "15px" }}>
+                <Box data-aos="fade-up" sx={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "15px", marginTop: { xs: "40px" } }}>
                   <Box component="img" src="/assets/images/step5.png" />
                   <Box >
                     <Typography sx={{ color: "#E6364F", ...styleTitleDes }}>Закупка ткани</Typography>
