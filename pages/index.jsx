@@ -36,11 +36,12 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  // width: 400,
-  // bgcolor: 'background.paper',
+  width: 450,
+  bgcolor: 'background.paper',
   border: 'none',
+  outline:'none',
   // boxShadow: 24,
-  // p: 4,
+  p: 2,
 };
 
 const offoringCards = [
@@ -200,8 +201,12 @@ export default function Home() {
 
             <Modal open={detailImagesModal}
               onClose={() => setDetailImagesModal(false)}>
-              <Box style={style} >
-                <Box sx={{ display: "grid", gap: "10px", minWidth: "100%", gridTemplateColumns: { md: "auto auto auto auto", xs: "auto auto " }, overflowX: "scroll", background: "white", padding: "10px" }}>
+              <Box sx={style} >
+                <Box sx={{
+                  display: "grid", gridColumnGap: "10px", gridAutoFlow: "column",
+                  overflowX: "scroll", scrollSnapType: "x mandatory",
+                  gridAutoColumns: { md: "70%", xs: "45%" }
+                }}>
                   {detailImages.map((i) => (
                     <Box key={i._id} sx={{ width: { md: "300px", xs: "180px" } }}>
                       <img style={{ width: "100%" }} src={`${BASE_URL}/src/uploads/${i.image}`} alt={i.image} />
@@ -538,7 +543,7 @@ export default function Home() {
                   <TextField error={validation.fullName} value={valueRequest.fullName} onChange={getRequest} name="fullName" sx={{}} id="outlined-basic" label="Введите ФИО" variant="outlined" />
                   <TextField error={validation.phone} value={valueRequest.phone} onChange={getRequest} name="phone" id="outlined-basic" label="Введите Тел. номер" variant="outlined" />
                 </Box>
-                <Box value={valueRequest.description} onChange={getRequest} name="description"
+                <Box id="outlined-basic" value={valueRequest.description} onChange={getRequest} name="description"
                   sx={{ border: `1px solid ${validation.description ? "red" : "gray"}`, width: "100%", height: "100px", borderRadius: "15px", padding: "15px", resize: "none" }} component="textarea" placeholder="Ваше сообщение" />
                 {(validation.fullName || validation.phone || validation.description) && (<Typography sx={{ color: "red", fontSize: "14px" }}>Пожалуйста, заполните все поля!</Typography>)}
                 <Button onClick={sendHandler} sx={{ background: "#58B958", marginTop: "20px" }} variant="contained" >Отправить</Button>

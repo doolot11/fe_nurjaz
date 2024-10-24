@@ -68,7 +68,11 @@ function Footer() {
                 borderTop: "1px dashed #ffffff", borderImageWidth: 4
             }}>
                 <Typography sx={{ color: "white", fontWeight: 200, fontSize: { xs: "12px" } }}>©2024 NURJAZ BRAND. Все права защищены.</Typography>
-                <Typography onClick={() => NavigatingSocial("https://t.me/shareoi")} sx={{ color: "white", fontWeight: 200, borderBottom: "1px solid #58B958", cursor: "pointer", ":hover": { borderBottom: "1px solid white" } }}>Сайт разработан ❤ +996 (999) 444 072</Typography>
+                <Typography onClick={() => NavigatingSocial("https://t.me/shareoi")}
+                    sx={{
+                        color: "white", fontWeight: 200, borderBottom: "1px solid #58B958", cursor: "pointer",
+                        ":hover": { borderBottom: "1px solid white" }, textDecoration: "none"
+                    }}>Сайт разработан ❤ +996 (999) 444 072</Typography>
             </Box>
         </footer>
     )

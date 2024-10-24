@@ -39,7 +39,8 @@ export const style = {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 400,
+    width: 500,
+    // height: 500,
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -296,8 +297,46 @@ function index() {
     console.log(detailCard.data, detailImages, "selectedDetailImage");
     // console.log(detailCard.data, "selectedDetailImage");
 
+
+    const [deleteDetailImage, setDeleteDetailImage] = useState({ modal: false, data: {} })
+    function deleteDetailImageHandle(i) {
+        setDeleteDetailImage({ data: i, modal: true })
+    }
+
+   async function confirmDeleteDetailImage() {
+        try {
+            const res = await fetch(`${BASE_URL}/content/detailCard/delete`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ _id: deleteDetailImage.data._id })
+            })
+            if (res.ok) {
+                setDetailImages((e) =>
+                    e.filter((i) => i._id !== deleteDetailImage.data._id)
+                )
+                setDeleteDetailImage({ modal: false })
+                toast.success("Успешно!")
+            }
+        } catch (error) {
+            toast.error("Ошибка!")
+        }
+    }
+
     return (
         <Box>
+            <Modal open={deleteDetailImage.modal} onClose={() => setDeleteDetailImage({ modal: false })}>
+                <Box sx={style}>
+                    <Box>
+                        <Typography>Вы хотите удалить?</Typography>
+                        <Box>
+                            <Button onClick={confirmDeleteDetailImage} color="error">Да</Button>
+                            <Button onClick={() => setDeleteDetailImage({ modal: false })}>Нет</Button>
+                        </Box>
+                    </Box>
+                </Box>
+            </Modal>
 
             <Modal open={isAddImageDetailCardModal.modal}
                 onClose={() => setAddImageDetailCardModal({ modal: false })}>
@@ -329,11 +368,19 @@ function index() {
 
             <Modal open={detailCard.modal}
                 onClose={() => setDetailCard({ modal: false })} >
+
                 <Box sx={style}>
-                    <Box sx={{ display: "grid", gridTemplateColumns: { md: "auto auto auto auto", xs: "auto auto" }, overflowX: "scroll" }}>
+                    {/* <Box sx={{ width: "100%",  }}> */}
+                    <Box sx={{
+                        // padding: "0 10px",
+                        display: "grid", gridColumnGap: "10px", gridAutoFlow: "column",
+                        overflowX: "scroll", scrollSnapType: "x mandatory",
+                        gridAutoColumns: { md: "70%", xs: "50%" }
+                    }}>
 
                         {detailImages.map((i, index) => (
-                            <Box key={i._id} sx={{ width: { md: "300px", xs: "150px" } }}>
+                            <Box key={i._id} sx={{position: "relative", width: { md: "300px", xs: "200px" }, scrollSnapAlign: "start", transition: "all 0.2s" }}>
+                                <Box sx={{ position: "absolute" }}><Image onClick={() => deleteDetailImageHandle(i)} style={{ cursor: "pointer" }} width={25} height={25} src="/assets/icons/delete.svg" /> </Box>
                                 <img style={{ width: "100%" }} src={`${BASE_URL}/src/uploads/${i.image}`} alt={i.image} />
                             </Box>
                         ))
@@ -341,6 +388,8 @@ function index() {
                     </Box>
                     <Button variant='outlined' onClick={addImageDetailCardModal}>Добавить фото</Button>
                 </Box>
+                {/* </Box> */}
+
             </Modal>
             <Modal
                 open={isOpenModalDeleteMainPost.modal}
@@ -427,7 +476,7 @@ function index() {
                                         <TableCell component="th">
                                             {row.fullName}
                                         </TableCell>
-                                        <TableCell sx={{whiteSpace: "nowrap"}} align="left">{row.phone}</TableCell>
+                                        <TableCell sx={{ whiteSpace: "nowrap" }} align="left">{row.phone}</TableCell>
                                         <TableCell align="left">{row.description}</TableCell>
                                         <TableCell align="left">{moment(row.createdAt).format('DD-MM-YYYY HH:mm')}</TableCell>
                                         <TableCell align="left">

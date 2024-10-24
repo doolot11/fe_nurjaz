@@ -26,3 +26,20 @@
   font-weight: 500;
   src: url("../public/assets/fonts/robotoserif/RobotoSerif20pt-Medium.woff2") format("woff2");
 }
+
+::-webkit-scrollbar {
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-track {
+  border-radius: 92px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(143, 255, 143);
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(213, 213, 213);
+}
