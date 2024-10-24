@@ -140,7 +140,13 @@ export default function Home() {
     setDetailImagesModal(true)
 
   }
+  useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
+    gtag('config', 'G-PZH1PRZN5S');
+  }, []);
 
   return (
     <>
@@ -157,6 +163,9 @@ export default function Home() {
         <meta property="og:image" content="/assets/images/nurjazLogo.jpg" />
         <meta property="og:url" content="https://www.nurjazkg.ru" />
         <meta name="google-site-verification" content="J_-2TkexiSRX4Q_-MrRDPCSmDcm45e4UMYurYqufQjQ" />
+        {/* <!-- Google tag (gtag.js) --> */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PZH1PRZN5S"></script>
+
       </Head>
       <div
 
