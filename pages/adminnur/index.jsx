@@ -159,6 +159,7 @@ function index() {
     const [valueToSend, setValueToSend] = useState({});
     const [mainCards, setMainCards] = useState([]);
     const [isOpenModalDeleteMainPost, setIsOpenModalDeleteMainPost] = useState({ modal: false, data: {} })
+    const [isOpenModalEditMainPost, setIsOpenModalEditMainPost] = useState({ modal: false, data: {} })
     const [isCreateMainCard, setIsCreateMainCard] = useState(false)
     const [detailCard, setDetailCard] = useState({ data: {}, modal: false })
     const [isAddImageDetailCardModal, setAddImageDetailCardModal] = useState({ data: {}, modal: false })
@@ -167,6 +168,11 @@ function index() {
 
     function isOpenDeleteMainPostHandle(e) {
         setIsOpenModalDeleteMainPost({ data: e, modal: true })
+    }
+    function isOpenEditMainPostHandle(e) {
+        setIsOpenModalEditMainPost({ data: e, modal: true })
+        console.log(e, "isOpenModalEditMainPost");
+
     }
 
     async function deleteMainPost() {
@@ -190,6 +196,37 @@ function index() {
         }
     }
 
+    const getNewImageDetailCard = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            setIsOpenModalEditMainPost((prev) => ({ ...prev, data: { ...prev.data, newImage: file } }));
+        }
+    };
+    async function confirmEditMainPost() {
+        try {
+            const formData = new FormData();
+            formData.append('title', isOpenModalEditMainPost.data.title);
+            if (isOpenModalEditMainPost.data.newImage) {
+                formData.append('image', isOpenModalEditMainPost.data.newImage);
+            }
+            formData.append('_id', isOpenModalEditMainPost.data._id);
+            const res = await fetch(`${BASE_URL}/content/mainCard/edit`, {
+            // const res = await fetch(`http://localhost:3001/content/mainCard/edit`, {
+                method: "POST",
+                body: formData
+            })
+            if (res.ok) {
+                setMainCards((e) =>
+                    e.filter((i) => i._id !== isOpenModalEditMainPost.data._id)
+                )
+                setIsOpenModalEditMainPost({ modal: false })
+                toast.success("Успешно!")
+            }
+        } catch (error) {
+            toast.error("Ошибка!")
+        }
+    }
+
     function getValueMainCard(e) {
         const { value, name } = e.target
         setValueToSend((e) => ({ ...e, [name]: value }))
@@ -202,13 +239,12 @@ function index() {
         }
     };
     const handleDetailImageChange = (event) => {
-        console.log("handleDetailImageChange");
-
         const file = event.target.files[0];
         if (file) {
             setSelectedDetailImage(file);
         }
     };
+
 
     // Handle form submission (for image upload)
     const handleSubmit = async (event) => {
@@ -294,16 +330,13 @@ function index() {
             setDetailImages(detailCard.data.count)
         }
     }, [detailCard])
-    console.log(detailCard.data, detailImages, "selectedDetailImage");
-    // console.log(detailCard.data, "selectedDetailImage");
-
 
     const [deleteDetailImage, setDeleteDetailImage] = useState({ modal: false, data: {} })
     function deleteDetailImageHandle(i) {
         setDeleteDetailImage({ data: i, modal: true })
     }
 
-   async function confirmDeleteDetailImage() {
+    async function confirmDeleteDetailImage() {
         try {
             const res = await fetch(`${BASE_URL}/content/detailCard/delete`, {
                 method: "POST",
@@ -379,8 +412,9 @@ function index() {
                     }}>
 
                         {detailImages.map((i, index) => (
-                            <Box key={i._id} sx={{position: "relative", width: { md: "300px", xs: "200px" }, scrollSnapAlign: "start", transition: "all 0.2s" }}>
-                                <Box sx={{ position: "absolute" }}><Image onClick={() => deleteDetailImageHandle(i)} style={{ cursor: "pointer" }} width={25} height={25} src="/assets/icons/delete.svg" /> </Box>
+                            <Box key={i._id} sx={{ position: "relative", width: { md: "300px", xs: "200px" }, scrollSnapAlign: "start", transition: "all 0.2s" }}>
+                                <Box sx={{ position: "absolute" }}><Image onClick={() => deleteDetailImageHandle(i)}
+                                    style={{ cursor: "pointer" }} width={25} height={25} src="/assets/icons/delete.svg" /> </Box>
                                 <img style={{ width: "100%" }} src={`${BASE_URL}/src/uploads/${i.image}`} alt={i.image} />
                             </Box>
                         ))
@@ -404,6 +438,51 @@ function index() {
                     </Box>
                 </Box>
             </Modal>
+            {/* edit modal */}
+            <Modal
+                open={isOpenModalEditMainPost.modal}
+                onClose={() => setIsOpenModalEditMainPost({ modal: false })}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description">
+                <Box sx={{ ...style, display: "flex", justifyContent: "center" }}>
+                    {isOpenModalEditMainPost.modal && <Box>
+                        <Typography>Редактировать пост</Typography>
+                        <form onSubmit={handleSubmit} action="">
+                            <Box sx={{ position: "relative", width: { md: "300px", xs: "150px" } }}>
+                                {isOpenModalEditMainPost.data?.newImage ?
+                                    <img
+                                        src={URL.createObjectURL(isOpenModalEditMainPost.data.newImage)}
+                                        alt="Selected"
+                                        style={{
+                                            width: '100%',
+                                            height: 'auto',
+                                            borderRadius: '8px',
+                                            marginTop: '10px',
+                                        }}
+                                    /> : <img
+                                        src={`${BASE_URL}/src/uploads/${isOpenModalEditMainPost.data.image}`}
+                                        alt="Selected"
+                                        style={{
+                                            width: '100%',
+                                            height: 'auto',
+                                            borderRadius: '8px',
+                                            marginTop: '10px',
+                                        }}
+                                    />}
+                                <Button variant='outlined' component="label" sx={{ position: "absolute", bottom: 0, left: 0 }}>Изменить
+                                    <input id="newImageDetail" type="file" hidden accept="image/*"
+                                        onChange={getNewImageDetailCard} />
+                                </Button>
+                            </Box>
+                        </form>
+                        <TextField onChange={(e) => setIsOpenModalEditMainPost((prev) => ({ ...prev, data: { ...prev.data, title: e.target.value } }))} value={isOpenModalEditMainPost.data.title} />
+                        <Box sx={{ display: "flex", gap: "10px" }}>
+                            <Button onClick={() => setIsOpenModalEditMainPost({ modal: false })} variant='outlined' >Отмена</Button>
+                            <Button onClick={confirmEditMainPost} variant='contained' color="error">Сохранить</Button>
+                        </Box>
+                    </Box>}
+                </Box>
+            </Modal >
             <Modal
                 open={open.modal}
                 onClose={handleClose}
@@ -491,31 +570,7 @@ function index() {
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    {/* <Box sx={{ overflowY: "scroll" }}>
-                        <Box sx={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr" }}>
-                            <Typography sx={{ ...titleStyle }}>ФИО</Typography>
-                            <Typography sx={{ ...titleStyle, whiteSpace: "nowrap" }}>Номер</Typography>
-                            <Typography sx={{ ...titleStyle }}>Описание</Typography>
-                            <Typography sx={{ ...titleStyle }}>Время</Typography>
-                            <Typography sx={{ ...titleStyle }}>Действия</Typography>
-                        </Box>
-                        {requests?.map((i) => (
-                            <Box sx={{
-                                display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr 1fr", borderBottom: "1px solid #a2a2a2", padding: "5px 0",
-                                background: `${i.isAnswered ? "#f4dc7d" : "none"}`
-                            }} key={i._id}>
-                                <Typography>{i.fullName}</Typography>
-                                <Typography sx={{ whiteSpace: "nowrap" }}>{i.phone}</Typography>
-                                <Typography sx={{}}>{i.description}</Typography>
-                                <Typography>{moment(i.createdAt).format('DD-MM-YYYY HH:mm')}</Typography>
-                                <Box sx={{ display: "flex", gap: "5px" }}>
-                                    <Button onClick={() => isOpenDeleteModal(i)} variant='contained' color="error" sx={{ width: "70px", fontSize: "10px", height: "30px" }}>Удалить</Button>
-                                    <Button onClick={() => isOpenAnsweredModal(i)} variant='contained' color="success"
-                                        sx={{ width: "80px", fontSize: "10px", height: "30px" }}>Прочитано</Button>
-                                </Box>
-                            </Box>
-                        ))}
-                    </Box> */}
+
                     <Stack spacing={2}>
                         <Pagination onChange={onChangePagination} count={countReqPage / 30} page={+router.query.page} color="secondary" />
                     </Stack>
@@ -578,6 +633,7 @@ function index() {
                                             ":hover": { transform: "translateY(-4px) !important", transition: "0.15s ease all" }
                                         }} key={"onw" + index}>
                                         <Box sx={{ position: "absolute" }}><Image onClick={() => isOpenDeleteMainPostHandle(e)} style={{ cursor: "pointer" }} width={25} height={25} src="/assets/icons/delete.svg" /> </Box>
+                                        <Box sx={{ position: "absolute", left: 35 }}><Image onClick={() => isOpenEditMainPostHandle(e)} style={{ cursor: "pointer" }} width={25} height={25} src="/assets/icons/edit.svg" /> </Box>
                                         <Box sx={{ width: "auto" }}>
                                             <img onClick={() => openDetailCardHandle(e)} style={{ width: "100%", height: "auto", objectFit: "cover" }} src={BASE_URL + "/src/uploads/" + e.image} alt="" />
                                             {/* <Image style={{ border: "1px #e2e2e2 solid", borderRadius: "20px" }} src={BASE_URL + "src/uploads/" + e.image} width={0} height={0} layout="responsive" /> */}

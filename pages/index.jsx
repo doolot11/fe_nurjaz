@@ -201,8 +201,8 @@ export default function Home() {
 
             <Modal open={detailImagesModal}
               onClose={() => setDetailImagesModal(false)}>
-              <Box sx={style} >
-                <Box sx={{
+              <Box  sx={style} >
+                <Box className={styles.detailImages} sx={{
                   display: "grid", gridColumnGap: "10px", gridAutoFlow: "column",
                   overflowX: "scroll", scrollSnapType: "x mandatory",
                   gridAutoColumns: { md: "70%", xs: "45%" }
