@@ -2,8 +2,8 @@
 <circle cx="100" cy="100" r="100" fill="url(#paint0_linear_13_120)" fill-opacity="0.5"/>
 <defs>
 <linearGradient id="paint0_linear_13_120" x1="1.85291e-06" y1="-34" x2="156.667" y2="187.333" gradientUnits="userSpaceOnUse">
-<stop stop-color="#58B958" stop-opacity="0.6"/>
-<stop offset="1" stop-color="#58B958" stop-opacity="0"/>
+<stop stop-color="#450505" stop-opacity="0.6"/>
+<stop offset="1" stop-color="#450505" stop-opacity="0"/>
 </linearGradient>
 </defs>
 </svg>

@@ -180,7 +180,7 @@ export default function Home() {
               right: '20px',
               width: "35px",
               height: "35px",
-              backgroundColor: '#58B958',
+              backgroundColor: '#450505',
               border: 'none',
               borderRadius: '50px',
               cursor: 'pointer',
@@ -242,7 +242,7 @@ export default function Home() {
                 <Box sx={{ paddingLeft: "50px" }}>
                   <Typography sx={{
                     fontSize: { md: "16px", xs: "14px" }, fontWeight: "300", width: { md: "450px", xs: "auto" },
-                    padding: "5px 0 5px 10px", fontWeight: 300, borderLeft: "2px solid #58B958",
+                    padding: "5px 0 5px 10px", fontWeight: 300, borderLeft: "2px solid #450505",
                   }}>
                     Швейная фабрика NURJAZ BRAND специализируется на пошиве одежды первого,
                     второго и третьего слоя. Мы производим продукцию "под ключ" с отправкой во все страны СНГ
@@ -318,14 +318,14 @@ export default function Home() {
 
           <Box id="about-company" sx={{ display: { md: "flex", xs: "block" }, justifyContent: "center", gap: "50px", margin: { md: "70px 0", xs: "20px 0 70px 0" } }}>
             <Box>
-              <Typography sx={{ color: "#58B958", fontSize: { md: "30px", xs: "22px" }, fontWeight: "500", textAlign: { xs: "center" } }}>О компании</Typography>
-              <Typography sx={{ borderLeft: "2px solid #58B958", fontSize: { md: "20px", xs: "16px" }, fontWeight: 300, width: { md: "585px", xs: "auto" }, padding: "0 0 0 15px", textAlign: { xs: "center" } }}>
+              <Typography sx={{ color: "#450505", fontSize: { md: "30px", xs: "22px" }, fontWeight: "500", textAlign: { xs: "center" } }}>О компании</Typography>
+              <Typography sx={{ borderLeft: "2px solid #450505", fontSize: { md: "20px", xs: "16px" }, fontWeight: 300, width: { md: "585px", xs: "auto" }, padding: "0 0 0 15px", textAlign: { xs: "center" } }}>
                 Мы специализируемся на производстве качественной текстильной продукции, включая повседневную, специальную
                 и корпоративную одежду. Наша команда предлагает полный
                 цикл — от разработки дизайна до упаковки готовых изделий, используя современные технологии и материалы.</Typography>
 
               <Box data-aos="fade-right" sx={{ padding: "20px", boxShadow: "0px 0px 12px 2px rgba(21, 21, 21, 0.2)", margin: { md: "40px 0 0 0", xs: "40px 10px 10px 10px" }, position: "relative", left: { md: 100, xs: 0 }, background: "white" }}>
-                <Typography sx={{ color: "#58B958", fontSize: "25px", fontWeight: "500" }}>Наши преимущества:</Typography>
+                <Typography sx={{ color: "#450505", fontSize: "25px", fontWeight: "500" }}>Наши преимущества:</Typography>
                 <Box component="li" sx={{ fontSize: "18px", fontWeight: 300, padding: "6px 0" }}>Высокое качество на каждом этапе производства.</Box>
                 <Box component="li" sx={{ fontSize: "18px", fontWeight: 300, padding: "6px 0" }}>Индивидуальный подход к каждому заказу.</Box>
                 <Box component="li" sx={{ fontSize: "18px", fontWeight: 300, padding: "6px 0" }}>Современные технологии для точности и скорости.</Box>
@@ -343,7 +343,7 @@ export default function Home() {
 
             {/* 1 */}
             <Box data-aos="fade-up" sx={{
-              background: "#58B958", display: "flex", justifyContent: "space-between", alignItems: "center",
+              background: "#450505", display: "flex", justifyContent: "space-between", alignItems: "center",
               width: { md: "650px", xs: "90%" }, padding: { md: "20px 30px", xs: "15px 25px" }, borderRadius: "100px", position: "relative"
             }}>
               <Box sx={{
@@ -360,7 +360,7 @@ export default function Home() {
             </Box>
             {/* 2 */}
             <Box data-aos="fade-up" sx={{
-              background: "#58B958", display: "flex", justifyContent: "space-between", alignItems: "center",
+              background: "#450505", display: "flex", justifyContent: "space-between", alignItems: "center",
               width: { md: "650px", xs: "90%" }, padding: { md: "20px 30px", xs: "15px 25px" }, borderRadius: "100px", position: "relative"
             }}>
               <Box sx={{
@@ -377,7 +377,7 @@ export default function Home() {
             </Box>
             {/* 3 */}
             <Box data-aos="fade-up" sx={{
-              background: "#58B958", display: "flex", justifyContent: "space-between", alignItems: "center",
+              background: "#450505", display: "flex", justifyContent: "space-between", alignItems: "center",
               width: { md: "650px", xs: "90%" }, padding: { md: "20px 30px", xs: "15px 25px" }, borderRadius: "100px", position: "relative"
             }}>
               <Box sx={{
@@ -538,7 +538,7 @@ export default function Home() {
               </div>
               {/* Request  */}
               <Box sx={{ padding: { xs: "0 10px" } }}>
-                <Typography sx={{ fontSize: "24px", fontWeight: 400, marginBottom: "25px", color: "#58B958", }}>Создайте заявку</Typography>
+                <Typography sx={{ fontSize: "24px", fontWeight: 400, marginBottom: "25px", color: "#450505", }}>Создайте заявку</Typography>
                 <Box sx={{ display: "flex", gap: "20px", marginBottom: "20px" }}>
                   <TextField error={validation.fullName} value={valueRequest.fullName} onChange={getRequest} name="fullName" sx={{}} id="outlined-basic" label="Введите ФИО" variant="outlined" />
                   <TextField error={validation.phone} value={valueRequest.phone} onChange={getRequest} name="phone" id="outlined-basic" label="Введите Тел. номер" variant="outlined" />
@@ -546,7 +546,7 @@ export default function Home() {
                 <Box id="outlined-basic" value={valueRequest.description} onChange={getRequest} name="description"
                   sx={{ border: `1px solid ${validation.description ? "red" : "gray"}`, width: "100%", height: "100px", borderRadius: "15px", padding: "15px", resize: "none" }} component="textarea" placeholder="Ваше сообщение" />
                 {(validation.fullName || validation.phone || validation.description) && (<Typography sx={{ color: "red", fontSize: "14px" }}>Пожалуйста, заполните все поля!</Typography>)}
-                <Button onClick={sendHandler} sx={{ background: "#58B958", marginTop: "20px" }} variant="contained" >Отправить</Button>
+                <Button onClick={sendHandler} sx={{ background: "#450505", marginTop: "20px" }} variant="contained" >Отправить</Button>
               </Box>
             </Box>
           </Box>

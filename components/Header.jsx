@@ -41,7 +41,7 @@ function Header() {
                     {navigates.map((i) => (
                         <Box key={"nav" + i.title}>
                             <Box component="a" sx={{
-                                cursor: "pointer", padding: "10px 15px", color: `${router.pathname === i.path ? "#58B958" : "#242424"}`,
+                                cursor: "pointer", padding: "10px 15px", color: `${router.pathname === i.path ? "#450505" : "#242424"}`,
                                 textDecoration: "none"
                             }}
                                 // onClick={() => navgating(i.path)}

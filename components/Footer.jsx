@@ -13,7 +13,7 @@ function Footer() {
     }
     return (
         <footer>
-            <Box sx={{ background: "#58B958", display: "grid", gridTemplateColumns: { md: "1fr 1fr 1fr" }, padding: { md: "40px 50px", xs: "40px 10px" } }}>
+            <Box sx={{ background: "#450505", display: "grid", gridTemplateColumns: { md: "1fr 1fr 1fr" }, padding: { md: "40px 50px", xs: "40px 10px" } }}>
                 <Box sx={{ textAlign: "center" }}>
                     <Box component='img' src={"/assets/icons/nurjazBlack.svg"} />
                     <Typography sx={{ color: "white", fontWeight: 500, fontSize: "24px", textAlign: "center" }}>NURJAZ BRAND</Typography>
@@ -64,13 +64,13 @@ function Footer() {
 
             </Box>
             <Box sx={{
-                background: "#58B958", display: { md: "flex", xs: "block" }, justifyContent: "space-around", padding: "20px 50px",
+                background: "#450505", display: { md: "flex", xs: "block" }, justifyContent: "space-around", padding: "20px 50px",
                 borderTop: "1px dashed #ffffff", borderImageWidth: 4
             }}>
                 <Typography sx={{ color: "white", fontWeight: 200, fontSize: { xs: "12px" } }}>©2024 NURJAZ BRAND. Все права защищены.</Typography>
                 <Typography onClick={() => NavigatingSocial("https://t.me/shareoi")}
                     sx={{
-                        color: "white", fontWeight: 200, borderBottom: "1px solid #58B958", cursor: "pointer",
+                        color: "white", fontWeight: 200, borderBottom: "1px solid #450505", cursor: "pointer",
                         ":hover": { borderBottom: "1px solid white" }, textDecoration: "none"
                     }}>Сайт разработан ❤ +996 (999) 444 072</Typography>
             </Box>
