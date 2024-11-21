@@ -31,6 +31,7 @@ export default function App({ Component, pageProps }) {
   return (
     <Box>
       <Head>
+      <meta name="yandex-verification" content="5890c705bdd2e0e7" />
         {/* <link rel="icon" type="image/png" href={"/assets/icons/favicon.png"} /> */}
         {/* <title>Nurjaz Brand</title> */}
         <meta name="description" content="швейная фабрика, Кыргызстан, униформа, спецодежда, производство на заказ, NURJAZ" />
