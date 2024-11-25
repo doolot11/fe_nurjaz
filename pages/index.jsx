@@ -167,6 +167,9 @@ export default function Home() {
         {/* <!-- Google tag (gtag.js) --> */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-PZH1PRZN5S"></script>
 
+        {/* image  */}
+        <link rel="preload" href="/_next/static/media/ellipse.8d580903.svg" as="image" type="image/svg+xml"
+        />
       </Head>
       <div
 
