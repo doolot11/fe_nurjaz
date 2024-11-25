@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "optimize-svgs": "svgo -f public/assets/icons --output public/assets/icons && svgo -f public/assets/images --output public/assets/images"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",

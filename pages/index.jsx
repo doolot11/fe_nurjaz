@@ -167,7 +167,7 @@ export default function Home() {
         {/* <!-- Google tag (gtag.js) --> */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-PZH1PRZN5S"></script>
 
-        {/* image  */}
+        {/* image analyze */}
         <link rel="preload" href="/_next/static/media/ellipse.8d580903.svg" as="image" type="image/svg+xml"
         />
       </Head>
@@ -228,7 +228,7 @@ export default function Home() {
             <Box sx={{ paddingLeft: "0px" }}>
               <Box sx={{ position: "relative" }}>
                 <Box sx={{ position: "absolute", left: { md: 40, xs: 20 }, top: { md: -80, xs: -90 } }}>
-                  <Image priority style={{}} src={ellips} />
+                  <Image priority style={{}} src={ellips} alt="Ellipse decoration" />
                 </Box>
                 <Box sx={{ position: "absolute", top: { md: 100, xs: 200 }, right: { md: -50, xs: 0 } }}>
                   <Image priority style={{}} src={square} />
