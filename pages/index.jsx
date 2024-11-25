@@ -11,7 +11,7 @@ import Ellips from "../public/assets/images/ellipse.svg"
 import Square from "../public/assets/images/square.svg"
 import Trangle from "../public/assets/images/trangle.svg"
 import bannerImage from "../public/assets/images/bannerImage.png"
-import  DrawingLeft from "../public/assets/images/drawingLeft.svg"
+import DrawingLeft from "../public/assets/images/drawingLeft.svg"
 import DrawingRight from "../public/assets/images/drawingRight.svg"
 // galery
 import image1 from "../public/assets/images/image1.png"
@@ -195,7 +195,7 @@ export default function Home() {
               zIndex: "10000"
             }}
           >
-            <ScrollTop  className={styles.scrollTop}
+            <ScrollTop className={styles.scrollTop}
               width={20} />
           </button>
           <Box sx={{
@@ -221,21 +221,21 @@ export default function Home() {
             </Modal>
 
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Instagram  onClick={() => NavigatingSocial("https://www.instagram.com/nurjaz_brand/")} data-aos="zoom-in-right" data-aos-delay="0" style={stylesImage} alt="Logo" width={27} />
-              <WhatsApp  onClick={() => NavigatingSocial("https://wa.me/996702085452/")} data-aos="zoom-in-right" data-aos-delay="100" style={stylesImage}  alt="Logo" width={27} />
-              <Phone  onClick={() => { window.location.href = 'tel:+996999444072'; }} data-aos="zoom-in-right" data-aos-delay="200" style={stylesImage}  alt="Logo" width={27} />
-              <Location  onClick={() => NavigatingSocial("https://go.2gis.com/cmxd2")} data-aos="zoom-in-right" data-aos-delay="300" style={stylesImage}  alt="Logo" width={27} />
+              <Instagram onClick={() => NavigatingSocial("https://www.instagram.com/nurjaz_brand/")} data-aos="zoom-in-right" data-aos-delay="0" style={stylesImage} alt="Logo" width={27} />
+              <WhatsApp onClick={() => NavigatingSocial("https://wa.me/996702085452/")} data-aos="zoom-in-right" data-aos-delay="100" style={stylesImage} alt="Logo" width={27} />
+              <Phone onClick={() => { window.location.href = 'tel:+996999444072'; }} data-aos="zoom-in-right" data-aos-delay="200" style={stylesImage} alt="Logo" width={27} />
+              <Location onClick={() => NavigatingSocial("https://go.2gis.com/cmxd2")} data-aos="zoom-in-right" data-aos-delay="300" style={stylesImage} alt="Logo" width={27} />
             </Box>
             <Box sx={{ paddingLeft: "0px" }}>
               <Box sx={{ position: "relative" }}>
                 <Box sx={{ position: "absolute", left: { md: 40, xs: 20 }, top: { md: -80, xs: -90 } }}>
-                  <Ellips  style={{}}  />
+                  <Ellips style={{}} />
                 </Box>
                 <Box sx={{ position: "absolute", top: { md: 100, xs: 200 }, right: { md: -50, xs: 0 } }}>
-                  <Square  style={{}} />
+                  <Square style={{}} />
                 </Box>
                 <Box sx={{ position: "absolute", top: 200, right: 250 }}>
-                  <Trangle  style={{}}  />
+                  <Trangle style={{}} />
                 </Box>
               </Box>
 
@@ -244,23 +244,35 @@ export default function Home() {
                   Швейное производство полного цикла в Бишкеке
                 </Typography>
                 <Box sx={{ paddingLeft: "50px" }}>
-                  <Typography sx={{
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      width: { md: "450px", xs: "auto" },
+                      padding: "5px 0 5px 10px",
+                      fontWeight: 300,
+                      borderLeft: "2px solid #450505",
+                    }}
+                  >
+                    Швейная фабрика NURJAZ BRAND специализируется на пошиве одежды первого,
+                    второго и третьего слоя. Мы производим продукцию "под ключ" с отправкой во все страны СНГ
+                  </Typography>
+                  {/* <Typography sx={{
                     fontSize: { md: "16px", xs: "14px" }, fontWeight: "300", width: { md: "450px", xs: "auto" },
                     padding: "5px 0 5px 10px", fontWeight: 300, borderLeft: "2px solid #450505",
                   }}>
                     Швейная фабрика NURJAZ BRAND специализируется на пошиве одежды первого,
                     второго и третьего слоя. Мы производим продукцию "под ключ" с отправкой во все страны СНГ
-                  </Typography>
+                  </Typography> */}
                 </Box>
               </Box>
 
             </Box>
             <Box sx={{ display: { md: "block", xs: "none" } }}>
-              <Image  data-aos="fade-down-left" layout="responsive" width={700} height={0} src={"/assets/images/bannerImage.png"} />
+              <Image data-aos="fade-down-left" layout="responsive" width={700} height={0} src={"/assets/images/bannerImage.png"} />
             </Box>
           </Box>
           <Box sx={{ display: { md: "none", xs: "block" } }}>
-            <Image  data-aos="fade-down-left" layout="responsive" width={700} height={0} src={"/assets/images/bannerImage.png"} />
+            <Image data-aos="fade-down-left" layout="responsive" width={700} height={0} src={"/assets/images/bannerImage.png"} />
           </Box>
 
           {/*  */}
@@ -275,7 +287,7 @@ export default function Home() {
                     ":hover": { transform: "translateY(-6px) !important", transition: "0.25s ease all" },
 
                   }} key={"onw" + index}>
-                    <Image  style={{ border: "1px #e2e2e2 solid", borderRadius: "150px 150px 0 0", }}
+                    <Image style={{ border: "1px #e2e2e2 solid", borderRadius: "150px 150px 0 0", }}
                       src={e.image} width={0} height={0} layout="responsive" />
 
                     <Typography sx={{ textAlign: "center", fontSize: { md: "18px", xs: "14px" }, fontWeight: 500 }}>{e.title}</Typography>
@@ -283,10 +295,10 @@ export default function Home() {
                   </Box>
                 ))}
               </Box>
-              <DrawingLeft  width={200}
-                 // Ensures the image loads eagerly
+              <DrawingLeft width={200}
+                // Ensures the image loads eagerly
                 style={{ position: "absolute", top: -50, left: 0 }} />
-              <DrawingRight   width={200} style={{ position: "absolute", right: 0, bottom: -80, zIndex: -1 }} />
+              <DrawingRight width={200} style={{ position: "absolute", right: 0, bottom: -80, zIndex: -1 }} />
             </Box>
           </Box>
 
@@ -305,7 +317,7 @@ export default function Home() {
                     }}
                       component="img" src={e.image} alt="image1" /> */}
                     <Box sx={{ width: "100%" }}>
-                      <Image  style={{ border: "1px #e2e2e2 solid", borderRadius: "20px" }} src={`${BASE_URL}/src/uploads/${e.image}`} width={0} height={0} layout="responsive" />
+                      <Image style={{ border: "1px #e2e2e2 solid", borderRadius: "20px" }} src={`${BASE_URL}/src/uploads/${e.image}`} width={0} height={0} layout="responsive" />
                     </Box>
                     <Box sx={{ borderRadius: "0 0 20px 20px", width: "100%", position: "absolute", bottom: 4, background: "#0000003e", padding: { md: "0 10px", xs: "0 4px" } }}>
                       <Typography sx={{ textAlign: "center", fontSize: { md: "18px", xs: "13px" }, fontWeight: 500, color: "white" }}>{e.title}</Typography>
@@ -359,7 +371,7 @@ export default function Home() {
                 </Typography>
               </Box>
               <Typography sx={{ fontSize: { md: "24px" }, color: "white" }}>Квалифицированных <br /> сотрудников</Typography>
-              <UsersIcon  component="img"  alt="user icon" />
+              <UsersIcon component="img" alt="user icon" />
             </Box>
             {/* 2 */}
             <Box data-aos="fade-up" sx={{
@@ -375,7 +387,7 @@ export default function Home() {
                   <Box component="span" sx={{ position: "relative", top: -10 }} >+</Box>
                 </Typography>
               </Box>
-              <Clients  component="img"  alt="client" />
+              <Clients component="img" alt="client" />
               <Typography sx={{ fontSize: { md: "24px" }, color: "white" }}>Довольных клиента</Typography>
             </Box>
             {/* 3 */}
@@ -393,7 +405,7 @@ export default function Home() {
                 </Typography>
               </Box>
               <Typography sx={{ fontSize: { md: "24px" }, color: "white" }}>Одежды создано</Typography>
-              <DoneWears  component="img" alt="done wears" />
+              <DoneWears component="img" alt="done wears" />
             </Box>
 
           </Box>
@@ -421,7 +433,7 @@ export default function Home() {
                     <Typography sx={{ ...styleStepDescription }}>Вы отправляете фотографии желаемой модели</Typography>
                   </Box>
                   <Box sx={{ width: { md: "120px", xs: "60px" } }}>
-                    <Image  src={"/assets/images/step1.svg"} layout="responsive" width={20} height={0} />
+                    <Image src={"/assets/images/step1.svg"} layout="responsive" width={20} height={0} />
                   </Box>
                   {/* <Box  component="img" src="/assets/images/step1.svg" /> */}
                   <Box sx={{ display: { md: "block", xs: "none" }, transform: "rotate(10deg)", position: "absolute", top: 65, right: 175 }} component="img" src="/assets/images/nextStep.svg" />
@@ -431,7 +443,7 @@ export default function Home() {
                   <Box sx={{ display: { md: "block", xs: "none" }, transform: "rotate(85deg)", position: "relative", top: 65, left: 180 }} component="img" src="/assets/images/nextStep.svg" />
                   {/* <Box component="img" src="/assets/images/step2.svg" /> */}
                   <Box sx={{ width: { md: "120px", xs: "60px" } }}>
-                    <Image  src={"/assets/images/step2.svg"} layout="responsive" width={20} height={0} />
+                    <Image src={"/assets/images/step2.svg"} layout="responsive" width={20} height={0} />
                   </Box>
                   <Box >
                     <Typography sx={{ color: "#98A0EF", ...styleTitleDes }}>Разработка лекала</Typography>
@@ -447,7 +459,7 @@ export default function Home() {
                     <Typography sx={{ ...styleStepDescription }}>Наш технолог шьёт   пробный  образец</Typography>
                   </Box>
                   <Box sx={{ width: { md: "120px", xs: "60px" } }}>
-                    <Image  src={"/assets/images/step3.svg"} layout="responsive" width={20} height={0} />
+                    <Image src={"/assets/images/step3.svg"} layout="responsive" width={20} height={0} />
                   </Box>
                   {/* <Box component="img" src="/assets/images/step3.svg" /> */}
                   <Box sx={{ display: { md: "block", xs: "none" }, position: "relative", top: 80, right: 175 }} component="img" src="/assets/images/nextStep.svg" alt="step next" />
@@ -457,7 +469,7 @@ export default function Home() {
                   <Box sx={{ display: { md: "block", xs: "none" }, transform: "rotate(85deg)", position: "relative", top: 65, left: 180 }} component="img" src="/assets/images/nextStep.svg" alt="step next1" />
                   {/* <Box component="img" src="/assets/images/step4.svg" /> */}
                   <Box sx={{ width: { md: "120px", xs: "60px" } }}>
-                    <Image  src={"/assets/images/step4.svg"} layout="responsive" width={20} height={0} />
+                    <Image src={"/assets/images/step4.svg"} layout="responsive" width={20} height={0} />
                   </Box>
                   <Box >
                     <Typography sx={{ color: "#30495E", ...styleTitleDes }}>Отправка образца</Typography>
@@ -477,7 +489,7 @@ export default function Home() {
                     <Typography sx={{ ...styleStepDescription }}>Закупаем ткани, фурнитуры с Вашим онлайн-участием</Typography>
                   </Box>
                   <Box sx={{ width: { md: "120px", xs: "60px" } }}>
-                    <Image  src={"/assets/images/step5.svg"} layout="responsive" width={20} height={0} />
+                    <Image src={"/assets/images/step5.svg"} layout="responsive" width={20} height={0} />
                   </Box>
                   {/* <Box component="img" src="/assets/images/step5.svg" /> */}
                   <Box sx={{ display: { md: "block", xs: "none" }, transform: "rotate(10deg)", position: "relative", top: 65, right: 175 }} component="img" alt="step image" src="/assets/images/nextStep.svg" />
@@ -487,7 +499,7 @@ export default function Home() {
                   <Box sx={{ display: { md: "block", xs: "none" }, transform: "rotate(85deg)", position: "relative", top: 65, left: 180 }} component="img" alt="step image" src="/assets/images/nextStep.svg" />
                   {/* <Box component="img" src="/assets/images/step6.svg" /> */}
                   <Box sx={{ width: { md: "120px", xs: "60px" } }}>
-                    <Image  src={"/assets/images/step6.svg"} layout="responsive" width={20} height={0} />
+                    <Image src={"/assets/images/step6.svg"} layout="responsive" width={20} height={0} />
                   </Box>
                   <Box >
                     <Typography sx={{ color: "#8BCDE8", ...styleTitleDes }}>Пошив партии</Typography>
@@ -504,7 +516,7 @@ export default function Home() {
                   </Box>
                   {/* <Box component="img" src="/assets/images/step7.svg" /> */}
                   <Box sx={{ width: { md: "120px", xs: "60px" } }}>
-                    <Image  src={"/assets/images/step7.svg"} layout="responsive" width={20} height={0} />
+                    <Image src={"/assets/images/step7.svg"} layout="responsive" width={20} height={0} />
                   </Box>
                   <Box sx={{ display: { md: "block", xs: "none" }, position: "relative", top: 80, right: 175 }} component="img" alt="step image" src="/assets/images/nextStep.svg" />
                 </Box>
@@ -513,7 +525,7 @@ export default function Home() {
                   <Box sx={{ display: { md: "block", xs: "none" }, transform: "rotate(85deg)", position: "relative", top: 65, left: 180 }} component="img" alt="step image" src="/assets/images/nextStep.svg" />
                   {/* <Box component="img" src="/assets/images/step8.svg" /> */}
                   <Box sx={{ width: { md: "120px", xs: "60px" } }}>
-                    <Image  src={"/assets/images/step8.svg"} layout="responsive" width={20} height={0} />
+                    <Image src={"/assets/images/step8.svg"} layout="responsive" width={20} height={0} />
                   </Box>
                   <Box >
                     <Typography sx={{ color: "#96D7A5", ...styleTitleDes }}>Отправка партии</Typography>
