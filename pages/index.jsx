@@ -288,8 +288,8 @@ export default function Home() {
                     ":hover": { transform: "translateY(-6px) !important", transition: "0.25s ease all" },
 
                   }} key={"onw" + index}>
-                    <Image style={{ border: "1px #e2e2e2 solid", borderRadius: "150px 150px 0 0", }}
-                      src={e.image} width={500} height={500} layout="intrinsic" alt={`image-${index}`} />
+                    <img style={{ border: "1px #e2e2e2 solid", borderRadius: "150px 150px 0 0", }}
+                      src={e.image} alt={`image-${index}`} />
 
                     <Typography sx={{ textAlign: "center", fontSize: { md: "18px", xs: "14px" }, fontWeight: 500 }}>{e.title}</Typography>
                     <Typography sx={{ width: "280px", textAlign: "center", fontWeight: 300, fontSize: { md: "18px", xs: "13px" } }}>{e.des}</Typography>
