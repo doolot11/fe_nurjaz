@@ -28,7 +28,7 @@ function Header() {
         <Box component="header" sx={{ padding: { md: "6px 100px 6px 80px", xs: "6px 20px 6px 20px" } }}>
             <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <Box sx={{ display: "flex", }}>
-                    <Image onClick={() => navgating('/')} src={Logo} alt="Logo" width={60} height={60} />
+                    <Logo onClick={() => navgating('/')}  alt="Logo" width={60} height={60} />
                     <Typography data-aos="fade-left" sx={{
                         padding: "5px 0 5px 10px", fontWeight: 300, borderLeft: "1px solid #242424",
                         width: { md: "380px" }, marginLeft: { md: "30px", xs: "10px" }, fontSize: { xs: "12px", md: "14px" }
