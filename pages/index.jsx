@@ -25,6 +25,7 @@ import CountUp from "react-countup";
 import ScrollTop from "../public/assets/icons/scrollTop.svg"
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import LazyYandexMap from "@/components/LazyYandexMap";
 
 const stylesImage = {
   margin: "15px 5px",
@@ -544,13 +545,14 @@ export default function Home() {
             </Typography>
             <Box sx={{ display: "grid", gridTemplateColumns: { md: "auto auto" }, gap: "40px" }}>
               {/* map */}
-              <div style={{
+              <LazyYandexMap />
+              {/* <div style={{
                 position: "relative", overflow: "hidden"
               }}>
                 <a href="https://yandex.com/maps/10309/bishkek/?utm_medium=mapframe&utm_source=maps" style={{ color: "#eee", fontSize: "12px", position: "absolute", top: "0px" }}>Bishkek</a>
                 <a href="https://yandex.com/maps/10309/bishkek/house/Y00YcAVmQUQCQFpofXR5cnhlbA==/?ll=74.627481%2C42.882918&utm_medium=mapframe&utm_source=maps&z=18.16" style={{ color: "#eee", fontSize: "12px", position: "absolute", top: "14px", }}>Yandex Maps: search for places, transport, and routes</a>
                 <iframe src="https://yandex.com/map-widget/v1/?ll=74.627481%2C42.882918&mode=whatshere&whatshere%5Bpoint%5D=74.626787%2C42.883494&whatshere%5Bzoom%5D=17&z=18.16" width="560" height="400" frameBorder="1" allowFullScreen={true} style={{ position: "relative" }}></iframe>
-              </div>
+              </div> */}
               {/* Request  */}
               <Box sx={{ padding: { xs: "0 10px" } }}>
                 <Typography sx={{ fontSize: "24px", fontWeight: 400, marginBottom: "25px", color: "#450505", }}>Создайте заявку</Typography>
