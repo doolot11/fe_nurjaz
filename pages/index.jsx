@@ -39,7 +39,7 @@ const style = {
   width: 450,
   bgcolor: 'background.paper',
   border: 'none',
-  outline:'none',
+  outline: 'none',
   // boxShadow: 24,
   p: 2,
 };
@@ -201,7 +201,7 @@ export default function Home() {
 
             <Modal open={detailImagesModal}
               onClose={() => setDetailImagesModal(false)}>
-              <Box  sx={style} >
+              <Box sx={style} >
                 <Box className={styles.detailImages} sx={{
                   display: "grid", gridColumnGap: "10px", gridAutoFlow: "column",
                   overflowX: "scroll", scrollSnapType: "x mandatory",
@@ -273,16 +273,15 @@ export default function Home() {
                   }} key={"onw" + index}>
                     <Image style={{ border: "1px #e2e2e2 solid", borderRadius: "150px 150px 0 0", }}
                       src={e.image} width={0} height={0} layout="responsive" />
-                    {/* <Box sx={{
-                      borderRadius: "150px 150px 0 0", margin: "0 10px", border: "1px #e2e2e2 solid",
-                    }}
-                      component="img" src={e.image} alt="image1" /> */}
+
                     <Typography sx={{ textAlign: "center", fontSize: { md: "18px", xs: "14px" }, fontWeight: 500 }}>{e.title}</Typography>
                     <Typography sx={{ width: "280px", textAlign: "center", fontWeight: 300, fontSize: { md: "18px", xs: "13px" } }}>{e.des}</Typography>
                   </Box>
                 ))}
               </Box>
-              <Image src={drawingLeft} width={200} style={{ position: "absolute", top: -50, left: 0 }} />
+              <Image src={drawingLeft} width={200}
+                priority // Ensures the image loads eagerly
+                style={{ position: "absolute", top: -50, left: 0 }} />
               <Image src={drawingRight} width={200} style={{ position: "absolute", right: 0, bottom: -80, zIndex: -1 }} />
             </Box>
           </Box>
@@ -356,7 +355,7 @@ export default function Home() {
                 </Typography>
               </Box>
               <Typography sx={{ fontSize: { md: "24px" }, color: "white" }}>Квалифицированных <br /> сотрудников</Typography>
-              <Image component="img" src={usersIcon} />
+              <Image component="img" src={usersIcon} alt="user icon" />
             </Box>
             {/* 2 */}
             <Box data-aos="fade-up" sx={{
@@ -372,7 +371,7 @@ export default function Home() {
                   <Box component="span" sx={{ position: "relative", top: -10 }} >+</Box>
                 </Typography>
               </Box>
-              <Image component="img" src={clients} />
+              <Image component="img" src={clients} alt="client" />
               <Typography sx={{ fontSize: { md: "24px" }, color: "white" }}>Довольных клиента</Typography>
             </Box>
             {/* 3 */}
@@ -390,7 +389,7 @@ export default function Home() {
                 </Typography>
               </Box>
               <Typography sx={{ fontSize: { md: "24px" }, color: "white" }}>Одежды создано</Typography>
-              <Image component="img" src={doneWears} />
+              <Image component="img" src={doneWears} alt="done wears" />
             </Box>
 
           </Box>
@@ -412,7 +411,7 @@ export default function Home() {
               <Box>
                 {/* step 1 */}
                 <Box data-aos="fade-up" sx={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "15px", position: "relative" }}>
-                  <Box component="img" src="/assets/images/step1.png" />
+                  <Box component="img" src="/assets/images/step1.png" alt="step 1" />
                   <Box >
                     <Typography sx={{ color: "#FF746C", ...styleTitleDes }}>Ваша модель</Typography>
                     <Typography sx={{ ...styleStepDescription }}>Вы отправляете фотографии желаемой модели</Typography>
@@ -434,11 +433,11 @@ export default function Home() {
                     <Typography sx={{ color: "#98A0EF", ...styleTitleDes }}>Разработка лекала</Typography>
                     <Typography sx={{ ...styleStepDescription }}>Конструкторы <br /> разрабатывают лекала <br /> вашей модели</Typography>
                   </Box>
-                  <Box component="img" src="/assets/images/step2.png" />
+                  <Box component="img" src="/assets/images/step2.png" alt="step 2" />
                 </Box>
                 {/* step 3 */}
                 <Box data-aos="fade-up" sx={{ position: "relative", left: 0, display: "flex", justifyContent: "center", alignItems: "center", gap: "15px", margin: "50px 0 0 0" }}>
-                  <Box component="img" src="/assets/images/step3.png" />
+                  <Box component="img" src="/assets/images/step3.png" alt="step 3" />
                   <Box >
                     <Typography sx={{ color: "#FFC669", ...styleTitleDes }}>Пошив образца</Typography>
                     <Typography sx={{ ...styleStepDescription }}>Наш технолог шьёт   пробный  образец</Typography>
@@ -447,11 +446,11 @@ export default function Home() {
                     <Image src={"/assets/images/step3.svg"} layout="responsive" width={20} height={0} />
                   </Box>
                   {/* <Box component="img" src="/assets/images/step3.svg" /> */}
-                  <Box sx={{ display: { md: "block", xs: "none" }, position: "relative", top: 80, right: 175 }} component="img" src="/assets/images/nextStep.svg" />
+                  <Box sx={{ display: { md: "block", xs: "none" }, position: "relative", top: 80, right: 175 }} component="img" src="/assets/images/nextStep.svg" alt="step next" />
                 </Box>
                 {/* step 4 */}
                 <Box data-aos="fade-up" sx={{ position: "relative", left: { md: 75, xs: 0 }, display: "flex", justifyContent: "center", alignItems: "center", gap: "15px", margin: "45px 0 0 0" }}>
-                  <Box sx={{ display: { md: "block", xs: "none" }, transform: "rotate(85deg)", position: "relative", top: 65, left: 180 }} component="img" src="/assets/images/nextStep.svg" />
+                  <Box sx={{ display: { md: "block", xs: "none" }, transform: "rotate(85deg)", position: "relative", top: 65, left: 180 }} component="img" src="/assets/images/nextStep.svg" alt="step next1" />
                   {/* <Box component="img" src="/assets/images/step4.svg" /> */}
                   <Box sx={{ width: { md: "120px", xs: "60px" } }}>
                     <Image src={"/assets/images/step4.svg"} layout="responsive" width={20} height={0} />
@@ -468,7 +467,7 @@ export default function Home() {
               <Box>
                 {/* step 5 */}
                 <Box data-aos="fade-up" sx={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "15px", marginTop: { xs: "40px" } }}>
-                  <Box component="img" src="/assets/images/step5.png" />
+                  <Box component="img" src="/assets/images/step5.png" alt="step 1" />
                   <Box >
                     <Typography sx={{ color: "#E6364F", ...styleTitleDes }}>Закупка ткани</Typography>
                     <Typography sx={{ ...styleStepDescription }}>Закупаем ткани, фурнитуры с Вашим онлайн-участием</Typography>
@@ -477,11 +476,11 @@ export default function Home() {
                     <Image src={"/assets/images/step5.svg"} layout="responsive" width={20} height={0} />
                   </Box>
                   {/* <Box component="img" src="/assets/images/step5.svg" /> */}
-                  <Box sx={{ display: { md: "block", xs: "none" }, transform: "rotate(10deg)", position: "relative", top: 65, right: 175 }} component="img" src="/assets/images/nextStep.svg" />
+                  <Box sx={{ display: { md: "block", xs: "none" }, transform: "rotate(10deg)", position: "relative", top: 65, right: 175 }} component="img" alt="step image" src="/assets/images/nextStep.svg" />
                 </Box>
                 {/* step 6 */}
                 <Box data-aos="fade-up" sx={{ position: "relative", left: { md: 75, xs: 0 }, display: "flex", justifyContent: "center", alignItems: "center", gap: "15px", margin: "25px 0 0 0" }}>
-                  <Box sx={{ display: { md: "block", xs: "none" }, transform: "rotate(85deg)", position: "relative", top: 65, left: 180 }} component="img" src="/assets/images/nextStep.svg" />
+                  <Box sx={{ display: { md: "block", xs: "none" }, transform: "rotate(85deg)", position: "relative", top: 65, left: 180 }} component="img" alt="step image" src="/assets/images/nextStep.svg" />
                   {/* <Box component="img" src="/assets/images/step6.svg" /> */}
                   <Box sx={{ width: { md: "120px", xs: "60px" } }}>
                     <Image src={"/assets/images/step6.svg"} layout="responsive" width={20} height={0} />
@@ -490,11 +489,11 @@ export default function Home() {
                     <Typography sx={{ color: "#8BCDE8", ...styleTitleDes }}>Пошив партии</Typography>
                     <Typography sx={{ ...styleStepDescription }}>Запуск производства под контролем наших технологов</Typography>
                   </Box>
-                  <Box component="img" src="/assets/images/step6.png" />
+                  <Box component="img" src="/assets/images/step6.png" alt="step image" />
                 </Box>
                 {/* step 7 */}
                 <Box data-aos="fade-up" sx={{ position: "relative", left: 0, display: "flex", justifyContent: "center", alignItems: "center", gap: "15px", margin: "50px 0 0 0" }}>
-                  <Box component="img" src="/assets/images/step7.png" />
+                  <Box component="img" src="/assets/images/step7.png" alt="step image" />
                   <Box >
                     <Typography sx={{ color: "#FFD25C", ...styleTitleDes }}>Контроль качества</Typography>
                     <Typography sx={{ ...styleStepDescription }}>Отдел ОТК проверяет на брак и готовит к отправке товар</Typography>
@@ -503,11 +502,11 @@ export default function Home() {
                   <Box sx={{ width: { md: "120px", xs: "60px" } }}>
                     <Image src={"/assets/images/step7.svg"} layout="responsive" width={20} height={0} />
                   </Box>
-                  <Box sx={{ display: { md: "block", xs: "none" }, position: "relative", top: 80, right: 175 }} component="img" src="/assets/images/nextStep.svg" />
+                  <Box sx={{ display: { md: "block", xs: "none" }, position: "relative", top: 80, right: 175 }} component="img" alt="step image" src="/assets/images/nextStep.svg" />
                 </Box>
                 {/* step 8 */}
                 <Box data-aos="fade-up" sx={{ position: "relative", left: { md: 75, xs: 0 }, display: "flex", justifyContent: "center", alignItems: "center", gap: "15px", margin: "45px 0 0 0" }}>
-                  <Box sx={{ display: { md: "block", xs: "none" }, transform: "rotate(85deg)", position: "relative", top: 65, left: 180 }} component="img" src="/assets/images/nextStep.svg" />
+                  <Box sx={{ display: { md: "block", xs: "none" }, transform: "rotate(85deg)", position: "relative", top: 65, left: 180 }} component="img" alt="step image" src="/assets/images/nextStep.svg" />
                   {/* <Box component="img" src="/assets/images/step8.svg" /> */}
                   <Box sx={{ width: { md: "120px", xs: "60px" } }}>
                     <Image src={"/assets/images/step8.svg"} layout="responsive" width={20} height={0} />
@@ -516,7 +515,7 @@ export default function Home() {
                     <Typography sx={{ color: "#96D7A5", ...styleTitleDes }}>Отправка партии</Typography>
                     <Typography sx={{ ...styleStepDescription }}>Партия продукции отправляется клиенту</Typography>
                   </Box>
-                  <Box component="img" src="/assets/images/step8.png" />
+                  <Box component="img" src="/assets/images/step8.png" alt="step image" />
                 </Box>
 
               </Box>
