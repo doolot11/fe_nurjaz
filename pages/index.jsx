@@ -247,7 +247,7 @@ export default function Home() {
                   <Typography
                     variant="body1"
                     sx={{
-                      width: { md: "450px", xs: "auto" },
+                      width: { md: "450px", xs: "100%" },
                       padding: "5px 0 5px 10px",
                       fontWeight: 300,
                       borderLeft: "2px solid #450505",

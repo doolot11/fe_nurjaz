@@ -1,29 +1,36 @@
+@font-face {
+  font-family: "Roboto";
+  font-weight: 200;
+  src: url("/assets/fonts/robotoserif/RobotoSerif20pt-ExtraLight.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 300;
+  src: url("/assets/fonts/robotoserif/RobotoSerif20pt-Light.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 400;
+  src: url("/assets/fonts/robotoserif/RobotoSerif20pt-Regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 500;
+  src: url("/assets/fonts/robotoserif/RobotoSerif20pt-Medium.woff2") format("woff2");
+  font-display: swap;
+}
+
+/* Применение шрифта ко всем элементам */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Roboto;
+  font-family: "Roboto", sans-serif;
   scroll-behavior: smooth;
 }
-
-@font-face {
-  font-family: "Roboto";
-  font-weight: 200;
-  src: url("../public/assets/fonts/robotoserif/RobotoSerif20pt-ExtraLight.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Roboto";
-  font-weight: 300;
-  src: url("../public/assets/fonts/robotoserif/RobotoSerif20pt-Light.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Roboto";
-  font-weight: 400;
-  src: url("../public/assets/fonts/robotoserif/RobotoSerif20pt-Regular.woff2") format("woff2");
-}
-@font-face {
-  font-family: "Roboto";  
-  font-weight: 500;
-  src: url("../public/assets/fonts/robotoserif/RobotoSerif20pt-Medium.woff2") format("woff2");
-}
-
