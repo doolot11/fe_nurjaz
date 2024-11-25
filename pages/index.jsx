@@ -281,7 +281,7 @@ export default function Home() {
           <Box id="galery" sx={{ margin: "100px auto" }}>
             <Typography sx={{ fontSize: { md: "33px", xs: "28px" }, fontWeight: "500", textAlign: "center", margin: "0 0 50px 0" }}>Что мы предлагаем ?</Typography>
             <Box sx={{ position: "relative", display: "flex", justifyContent: "center" }}>
-              <Box sx={{ display: "grid", gridTemplateColumns: { md: "auto auto auto auto", xs: "auto" }, zIndex: 1 }}>
+              <Box sx={{ display: "grid", gridTemplateColumns: { md: "auto auto auto auto", xs: "auto" }, zIndex: 1, margin: { md: "100px", xs: "50px" } }}>
                 {offoringCards.map((e, index) => (
                   <Box data-aos="fade-up" data-aos-anchor-placement="center-bottom" data-aos-once="true" sx={{
                     margin: { md: "0 10px", xs: "20px 0" },
@@ -289,7 +289,7 @@ export default function Home() {
 
                   }} key={"onw" + index}>
                     <Image style={{ border: "1px #e2e2e2 solid", borderRadius: "150px 150px 0 0", }}
-                      src={e.image} width={0} height={0} layout="responsive" />
+                      src={e.image} width={500} height={500} layout="intrinsic" alt={`image-${index}`} />
 
                     <Typography sx={{ textAlign: "center", fontSize: { md: "18px", xs: "14px" }, fontWeight: 500 }}>{e.title}</Typography>
                     <Typography sx={{ width: "280px", textAlign: "center", fontWeight: 300, fontSize: { md: "18px", xs: "13px" } }}>{e.des}</Typography>

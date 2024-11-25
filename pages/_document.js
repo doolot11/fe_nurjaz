@@ -24,7 +24,7 @@ export default function Document() {
           accurateTrackBounce:true,
           webvisor:true
         });
-      }, 3000); // Загружается через 3 секунды
+      }, 4000); // Загружается через 3 секунды
     `,
           }}
         />
