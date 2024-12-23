@@ -180,6 +180,7 @@ export default function Home() {
 
       >
         <main >
+          <div></div>
           <Box sx={{ zIndex: 2}}>
             <Image style={{ position: "fixed", top: -6, right: -6 }} width={100} height={0} src={RightCornerImage} />
             <Image style={{ position: "fixed", top: -6, left: -6 }} width={100} height={0} src={LeftCornerImage} />
