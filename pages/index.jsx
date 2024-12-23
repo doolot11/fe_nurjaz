@@ -26,6 +26,10 @@ import ScrollTop from "../public/assets/icons/scrollTop.svg"
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import LazyYandexMap from "@/components/LazyYandexMap";
+// new years --
+import LeftCornerImage from "../public/assets/images/new-year/new-year-left.png"
+import RightCornerImage from "../public/assets/images/new-year/new-year-right.png"
+import BottomImage from "../public/assets/images/new-year/new-year-bottom.png"
 
 const stylesImage = {
   margin: "15px 5px",
@@ -176,6 +180,16 @@ export default function Home() {
 
       >
         <main >
+          <Box sx={{ zIndex: 2}}>
+            <Image style={{ position: "fixed", top: -6, right: -6 }} width={100} height={0} src={RightCornerImage} />
+            <Image style={{ position: "fixed", top: -6, left: -6 }} width={100} height={0} src={LeftCornerImage} />
+            <Box sx={{ display: { md: "block", lg: "block" }, }}>
+              <Image style={{zIndex: 2, position: "fixed", bottom: 0, left: "50%", transform: "translateX(-50%)" }} width={0} height={40} src={BottomImage} />
+            </Box>
+            <Box sx={{ display: { md: "none", lg: "block" }, }}>
+              <Image style={{zIndex: 2, position: "fixed", bottom: 0, left: "50%", transform: "translateX(-50%)" }} width={0} height={70} src={BottomImage} />
+            </Box>
+          </Box>
           <button
             onClick={scrollToTop}
             style={{

@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import Footer from "@/components/Footer";
 import { ToastContainer, Zoom } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import Snowfall from 'react-snowfall'
 
 
 function Layout({ children }) {
@@ -49,6 +50,7 @@ export default function App({ Component, pageProps }) {
         theme="light"
         transition={Zoom}
       />
+      <Snowfall />
       <Layout>
         <Component {...pageProps} />
       </Layout>
