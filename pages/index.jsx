@@ -558,7 +558,7 @@ export default function Home() {
             <Typography sx={{ textAlign: "start", fontSize: "30px", fontWeight: "500", marginBottom: "40px" }}>
               Расположение нашей компании на карте
             </Typography>
-            <Box sx={{ display: "grid", gridTemplateColumns: { md: "auto auto" }, gap: "40px" }}>
+            <Box sx={{ display: "grid", transform:{ md: "translate(0%)", lg:"translate(-20%)"}, gridTemplateColumns: { md: "70% 70%" }, gap: "40px" }}>
               {/* map */}
               <LazyYandexMap />
               {/* <div style={{
