@@ -33,7 +33,6 @@ export default function App({ Component, pageProps }) {
     <Box>
       <Head>
         {/* 25-03-2025 */}
-      <meta name="google-site-verification" content="52v76Lq9KSKupsuHgkEJZTCIVFILRswwOsaCYe9N_eg" /> 
       <meta name="yandex-verification" content="5890c705bdd2e0e7" />
         {/* <link rel="icon" type="image/png" href={"/assets/icons/favicon.png"} /> */}
         {/* <title>Nurjaz Brand</title> */}
