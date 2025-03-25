@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /adminnur/
+
+User-agent: *
+Allow: /
+
+Sitemap: https://nurjazkg.ru/sitemap.xml

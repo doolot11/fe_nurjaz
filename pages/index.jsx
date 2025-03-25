@@ -181,7 +181,8 @@ export default function Home() {
       >
         <main >
           <div></div>
-          <Box sx={{ zIndex: 2}}>
+          {/* new year images */}
+          {/* <Box sx={{ zIndex: 2}}>
             <Image style={{ position: "fixed", top: -6, right: -6 }} width={100} height={0} src={RightCornerImage} />
             <Image style={{ position: "fixed", top: -6, left: -6 }} width={100} height={0} src={LeftCornerImage} />
             <Box sx={{ display: { md: "block", lg: "block" }, }}>
@@ -190,7 +191,7 @@ export default function Home() {
             <Box sx={{ display: { md: "none", lg: "block" }, }}>
               <Image style={{zIndex: 2, position: "fixed", bottom: 0, left: "50%", transform: "translateX(-50%)" }} width={0} height={70} src={BottomImage} />
             </Box>
-          </Box>
+          </Box> */}
           <button
             onClick={scrollToTop}
             style={{
