@@ -38,7 +38,6 @@ export default function Document() {
           </div>
         </noscript>
         {/* Конец Яндекс.Метрики */}
-      <meta name="google-site-verification" content="52v76Lq9KSKupsuHgkEJZTCIVFILRswwOsaCYe9N_eg" /> 
 
       </Head>
       <body>
